@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap');
+@import "tailwindcss";
+body{
+  font-family: 'Alkatra';
+  background-color: #000502;
+}
+:root {
+    --bg-color: #0f0f0f;
+    --card-width: 80px;
+    --card-active-width: 600px;
+    --transition-curve: cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 95%;
+    max-width: 1000px;
+    height: 450px;
+}
+
+.option {
+    position: relative;
+    overflow: hidden;
+    min-width: var(--card-width);
+    margin: 10px;
+    background: var(--optionBackground);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: flex 0.7s var(--transition-curve), filter 0.7s ease;
+    flex: 1; 
+    filter: grayscale(0.8) brightness(0.6);
+}
+
+
+.option.active {
+    flex: 8; 
+    filter: grayscale(0) brightness(1);
+}
+
+.shadow {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 150px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.label {
+    display: flex;
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    height: 40px;
+    right: 20px;
+}
+
+.label .icon {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg-color);
+    font-size: 1.2rem;
+}
+
+.label .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+.option.active .info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.main { font-weight: bold; font-size: 1.3rem; }
+.sub { font-size: 0.9rem; color: #ccc; }
+
+
+@media screen and (max-width: 718px) {
+    .options { height: 600px; flex-direction: column; }
+    .option.active { flex: 5; }
+}
