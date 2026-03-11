@@ -72,7 +72,7 @@ function MovieDetail() {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-8xl font-black mb-4 leading-none tracking-tighter uppercase italic drop-shadow-2xl">
+          <h1 className="text-5xl md:text-6xl font-black mb-4 leading-none tracking-tighter uppercase italic drop-shadow-2xl">
             {movie.Title}
           </h1>
 
